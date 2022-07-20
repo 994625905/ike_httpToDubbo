@@ -1471,3 +1471,5 @@ module.exports = Dubbo
 > 这只是个演示的demo，没有做动态监测注册中心的变动，但是生产环境上做了，保证服务元数据是最新的（允许有一定的异步更新），如果需要的话，可以自行去实现。
 
 git地址见：https://github.com/994625905/ike_httpToDubbo
+
+参考资料：https://github.com/omnip620/node-zookeeper-dubbo
