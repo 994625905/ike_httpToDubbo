@@ -1,0 +1,44 @@
+{
+  "name": "js-to-java",
+  "version": "2.7.0",
+  "description": "easy way to wrap js object to java object",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "scripts": {
+    "test": "mocha -R spec -t 3000 -r should test/*.test.js",
+    "test-cov": "istanbul cover _mocha -- -t 3000 -r should test/*.test.js",
+    "ci": "npm run jshint && npm run test-cov",
+    "jshint": "jshint .",
+    "autod": "autod -w --prefix '~' -t test -e examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/node-modules/js-to-java.git"
+  },
+  "keywords": [
+    "js",
+    "java",
+    "object",
+    "wraper",
+    "class"
+  ],
+  "author": "dead_horse <dead_horse@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/node-modules/js-to-java/issues"
+  },
+  "homepage": "https://github.com/node-modules/js-to-java",
+  "dependencies": {},
+  "devDependencies": {
+    "autod": "*",
+    "contributors": "*",
+    "cov": "*",
+    "istanbul": "*",
+    "mocha": "*",
+    "should": "10.0.0",
+    "jshint": "2"
+  }
+}
