@@ -58,7 +58,7 @@ dubbo也一样，服务提供者在读服务消费者传递的报文时，必须
 
 **如下图所示：**
 
-![dubbo协议标准](/Users/wangjinchao/ikejcwang/work_note/images/dubbo协议标准.png)
+![dubbo协议标准](https://user-images.githubusercontent.com/37284463/179986753-9abd9d4e-5363-47f3-9aa8-a0d08a9e49d9.png)
 
 简单描述：一行是4个字节，32位。一直到96位那里，即第16个字节之前，都属于headers内容，往后的才是body。
 
@@ -1470,4 +1470,4 @@ module.exports = Dubbo
 
 > 这只是个演示的demo，没有做动态监测注册中心的变动，但是生产环境上做了，保证服务元数据是最新的（允许有一定的异步更新），如果需要的话，可以自行去实现。
 
-
+git地址见：https://github.com/994625905/ike_httpToDubbo
