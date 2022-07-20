@@ -219,7 +219,8 @@ spring.dubbo.scan=vip.wangjc.rio.provider.service
 @Component
 ```
 
-完整代码需要的话，可参考：https://github.com/994625905/rio_dubbo.git，或者也可以用自己现有的dubb测试服务。
+完整代码需要的话，可参考：https://github.com/994625905/rio_dubbo.git
+或者也可以用自己现有的dubb测试服务。
 
 ### 2.2.1、zookeeper
 
