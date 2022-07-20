@@ -220,6 +220,7 @@ spring.dubbo.scan=vip.wangjc.rio.provider.service
 ```
 
 完整代码需要的话，可参考：https://github.com/994625905/rio_dubbo.git
+
 或者也可以用自己现有的dubb测试服务。
 
 ### 2.2.1、zookeeper
@@ -1453,7 +1454,47 @@ function keyDubboServiceMeta(id, interfaceName) {
 module.exports = Dubbo
 ```
 
-## 3.4、自问自答
+## 3.4、请求&传参&调用
+
+**dubbo的泛化机制**是传参的核心，引用类型参数名称必须为全类名，方便服务端的反射机制去反序列化。
+
+```shell
+# 无参GET 请求
+wangjinchao@IKEJCWANG-MB0 ike_httpToDubbo %  curl "http://127.0.0.1:8080/userManager/getUserName"    
+"masterYi"                                                                                                   
+
+# 独参POST 请求
+wangjinchao@IKEJCWANG-MB0 ike_httpToDubbo % curl "http://127.0.0.1:8080/userManager/updateUser" -XPOST -d '{"vip.wangjc.rio.api.entity.RioUser":{"name":"ikejcwang","age":27,"gender":true,"info":{"phone":"13297030623"}}}'
+{"name":"masterYi","age":30,"gender":false,"info":{"phone":"13297030623"}}                                   
+
+# 多参数POST 请求
+wangjinchao@IKEJCWANG-MB0 ike_httpToDubbo % curl "http://127.0.0.1:8080/userManager/getUser" -XPOST -d '{"1:java.lang.String":"ikejcwang","2:java.lang.Integer":27}'        
+{"name":"ikejcwang","age":27,"gender":false,"info":{"phone":"13297030623"}}
+```
+
+请求body结构如下
+
+```json
+// updateUser方法的user参数对应全类名为：vip.wangjc.rio.api.entity.RioUser
+{
+    "vip.wangjc.rio.api.entity.RioUser": {
+        "name": "ikejcwang",
+        "age": 27,
+        "gender": true,
+        "info": {
+            "phone": "13297030623"
+        }
+    }
+}
+// getUser方法有两个参数，name和age，虽然一般很少这样做，但我还是做了个兼容处理，因为json对象无序，在组装报文时需要处理参数的顺序，传参key上必须附带前缀排序机制，
+{
+    "1:java.lang.String": "ikejcwang",
+    "2:java.lang.Integer": 27
+}
+// 其他接口类似一样……
+```
+
+## 3.5、自问自答
 
 1、为什么socket调度器需要挂到进程变量上？
 
@@ -1471,6 +1512,9 @@ module.exports = Dubbo
 
 > 这只是个演示的demo，没有做动态监测注册中心的变动，但是生产环境上做了，保证服务元数据是最新的（允许有一定的异步更新），如果需要的话，可以自行去实现。
 
+
+
 git地址见：https://github.com/994625905/ike_httpToDubbo
 
 参考资料：https://github.com/omnip620/node-zookeeper-dubbo
+

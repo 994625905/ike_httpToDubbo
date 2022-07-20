@@ -1,7 +1,7 @@
 {
   "userManager": {
     "registerCenterHosts": [
-      "127.0.0.1:2181"
+      "9.134.164.91:2181"
     ],
     "registerCenterType": "zookeeper",
     "interfaceName": "vip.wangjc.rio.api.service.RioDubboService",
