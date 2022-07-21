@@ -250,7 +250,7 @@ zk采用树形结构来存储数据，跟文件系统路径香类似的节点，
 
 > 遍历数组，先URI解码，解码之后在用url格式化处理为json对象，然后添加到新的数组，最后输出新数组：
 
-```json
+```js
 [
   {
     protocol: 'dubbo:',
@@ -1474,7 +1474,7 @@ wangjinchao@IKEJCWANG-MB0 ike_httpToDubbo % curl "http://127.0.0.1:8080/userMana
 
 请求body结构如下
 
-```json
+```js
 // updateUser方法的user参数对应全类名为：vip.wangjc.rio.api.entity.RioUser
 {
     "vip.wangjc.rio.api.entity.RioUser": {
@@ -1494,7 +1494,10 @@ wangjinchao@IKEJCWANG-MB0 ike_httpToDubbo % curl "http://127.0.0.1:8080/userMana
 // 其他接口类似一样……
 ```
 
-## 3.5、自问自答
+## 3.5、总结
+有了http服务这层代理，我们就可以在请求dubbo服务的时候基于http server上面做任何操作，包括但不限于：限流，黑白名单，鉴权，验签，定制请求&响应响应报文……只要是http链路可以实现的都支持。
+
+## 3.6、自问自答
 
 1、为什么socket调度器需要挂到进程变量上？
 
