@@ -1518,3 +1518,5 @@ git地址见：https://github.com/994625905/ike_httpToDubbo
 
 参考资料：https://github.com/omnip620/node-zookeeper-dubbo
 
+下篇文章：http调用grpc协议的最终解决方案
+
