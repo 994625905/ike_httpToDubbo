@@ -39,7 +39,7 @@ function startHttpServer() {
     let server = http.createServer();
     server.on('request', listenRequestEvent);
     server.on('close', () => {
-        console.log('http Server has Stopped At:' + port)
+        console.log('http Server has Stopped At:' + settings['bindPort'])
     });
     server.on('error', err => {
         console.log('http Server error:' + err.toString());
