@@ -12,7 +12,7 @@ let default_settings = {
     config: './config.json',
 }
 let settings = Object.assign({}, default_settings, JSON.parse(process.env.settings));
-
+// 领先提交
 exports.settings = settings;
 
 exports.configs = JSON.parse(fs.readFileSync(settings.config).toString())
