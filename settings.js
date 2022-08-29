@@ -15,5 +15,4 @@ let settings = Object.assign({}, default_settings, JSON.parse(process.env.settin
 
 exports.settings = settings;
 
-// 测试冲突场景
 exports.configs = JSON.parse(fs.readFileSync(settings.config).toString())
