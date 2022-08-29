@@ -1,1 +1,1 @@
-let t = ['a', 'b']
+let test = "this is test"
